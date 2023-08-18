@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
+// Import PatientController
+use App\Http\Controllers\PatientController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +19,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// PatientController Route
+Route::resource('patients', PatientController::class);
