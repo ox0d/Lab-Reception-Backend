@@ -17,16 +17,21 @@ class PatientController extends Controller
 
     public function store(Request $request)
     {
-        $patient = new Patient([
-            'full_name' => $request->input('full_name'),
-            'birthday_date' => $request->input('birthday_date'),
-            'phone_number' => $request->input('phone_number'),
-            'gender' => $request->input('gender'),
-            'note' => $request->input('note'),
-        ]);
-        $patient->save();
-
-        return response()->json(['message' => 'Patient created successfully']);
+        try {
+            $patient = new Patient();
+        
+            $patient->full_name = $request->input('full_name');
+            $patient->birthday_date = $request->input('birthday_date');
+            $patient->phone_number = $request->input('phone_number');
+            $patient->gender = $request->input('gender');
+            $patient->note = $request->input('note');
+        
+            $patient->save();
+        
+            return response()->json(['message' => 'Patient created successfully', 'id' => $patient->id]);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Error creating patient. Please try again.']);
+        }
     }
 
     // public function update(Request $request, $id)
