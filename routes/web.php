@@ -8,6 +8,12 @@ use App\Http\Controllers\PatientController;
 // Import PatientController
 use App\Http\Controllers\DoctorController;
 
+// Import TestCategoryController
+use App\Http\Controllers\TestCategoryController;
+
+// Import TestController
+use App\Http\Controllers\TestController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,3 +36,9 @@ Route::post('/patients', [PatientController::class, 'store'])->name('patients.st
 
 // DoctorController Route
 Route::resource('doctors', DoctorController::class)->except(['store', 'update', 'destroy', 'create', 'show', 'edit']);
+
+// TestCategoryController Route
+Route::get('/test-categories' , [TestCategoryController::class, 'index']);
+
+// TestController Route
+Route::get('/tests' , [TestController::class, 'index']);
