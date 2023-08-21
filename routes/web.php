@@ -14,6 +14,9 @@ use App\Http\Controllers\TestCategoryController;
 // Import TestController
 use App\Http\Controllers\TestController;
 
+// Import BarcodeGenerationController 
+use App\Http\Controllers\BarcodeGenerationController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,7 +41,10 @@ Route::post('/patients', [PatientController::class, 'store'])->name('patients.st
 Route::resource('doctors', DoctorController::class)->except(['store', 'update', 'destroy', 'create', 'show', 'edit']);
 
 // TestCategoryController Route
-Route::get('/test-categories' , [TestCategoryController::class, 'index']);
+Route::get('/test-categories' , [TestCategoryController::class, 'index'])->name('categories.index');
 
 // TestController Route
-Route::get('/tests' , [TestController::class, 'index']);
+Route::get('/tests' , [TestController::class, 'index'])->name('tests.index');
+
+// BarcodeGenerationController Route
+Route::post('/barcode-generation', [BarcodeGenerationController::class, 'store'])->name('barcodes.store')->withoutMiddleware('web');
