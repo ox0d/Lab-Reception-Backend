@@ -20,11 +20,11 @@ class PatientController extends Controller
         try {
             $patient = new Patient();
         
-            $patient->full_name = $request->input('full_name');
-            $patient->birthday_date = $request->input('birthday_date');
-            $patient->phone_number = $request->input('phone_number');
-            $patient->gender = $request->input('gender');
-            $patient->note = $request->input('note');
+            $patient->full_name = trim(strip_tags($request->input('full_name')));
+            $patient->birthday_date = trim(strip_tags($request->input('birthday_date')));
+            $patient->phone_number = trim(strip_tags($request->input('phone_number')));
+            $patient->gender = trim(strip_tags($request->input('gender')));
+            $patient->note = trim(strip_tags($request->input('note')));
         
             $patient->save();
         
