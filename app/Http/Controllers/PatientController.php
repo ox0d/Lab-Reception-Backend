@@ -33,29 +33,4 @@ class PatientController extends Controller
             return response()->json(['error' => 'Error creating patient. Please try again.']);
         }
     }
-
-    // public function update(Request $request, $id)
-    // {
-    //     $patient = Patient::find($id);
-    //     if (!$patient) {
-    //         return response()->json(['message' => 'Patient not found'], 404);
-    //     }
-
-    //     $patient->fill($request->all());
-    //     $patient->save();
-
-    //     return response()->json(['message' => 'Patient updated successfully']);
-    // }
-
-    // public function destroy($id)
-    // {
-    //     $patient = Patient::find($id);
-    //     if (!$patient) {
-    //         return response()->json(['message' => 'Patient not found'], 404);
-    //     }
-
-    //     $patient->delete();
-
-    //     return response()->json(['message' => 'Patient deleted successfully']);
-    // }
 }

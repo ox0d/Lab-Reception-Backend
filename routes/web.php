@@ -32,6 +32,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Practice
+
 // PatientController Route
 Route::resource('patients', PatientController::class)->except(['update', 'destroy', 'create', 'show', 'edit', 'store']);
 Route::post('/patients', [PatientController::class, 'store'])->name('patients.store')->withoutMiddleware('web');
